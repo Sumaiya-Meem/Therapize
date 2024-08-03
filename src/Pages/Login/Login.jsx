@@ -1,8 +1,9 @@
 import img from "../../../public/register.png";
 import logo from "../../../public/logo.png";
+import google from "../../../public/google.png";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
+import { FaRegEyeSlash, FaRegEye ,FaFacebookF } from "react-icons/fa";
 import { useState } from "react";
 
 const Login = () => {
@@ -31,6 +32,21 @@ const Login = () => {
         <p className="mb-3">
         Welcome Back! Select a method to log in:
         </p>
+
+        <div className="flex justify-between w-[400px] my-7 items-center">
+               <button className="bg-gradient-to-r from-[#E4E4E4] to-[#fafafa] flex items-center gap-1 w-[120px] h-[40px] px-2 rounded-md">
+                <img src={google} alt="" />
+                <h1>Google</h1>
+               </button>
+
+               <button className="text-white bg-gradient-to-r from-[#298FFF] to-[#0778F5] flex items-center gap-1 w-[150px] h-[40px] px-2 justify-center rounded-md">
+                <FaFacebookF></FaFacebookF>
+                <h1>Facebook</h1>
+               </button>
+        </div>
+        <div className="w-[400px] my-4">
+                  <p className="text-center text-sm font-[Poppins]">Or Continue with Email</p>
+        </div>
 
         {/* register form */}
         <div>
