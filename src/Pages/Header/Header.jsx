@@ -2,9 +2,10 @@ import { Avatar, Dropdown } from "flowbite-react";
 import { IoNotificationsOutline } from "react-icons/io5";
 import img from "../../../public/user.png";
 import { CgLogOut } from "react-icons/cg";
+import { Link} from "react-router-dom";
 const Header = () => {
   return (
-    <div className="bg-white mb-3 p-2">
+    <div className="bg-white mb-3 p-2 ">
       <div className="flex justify-between items-center">
         <div className="relative flex items-center gap-2 ml-2">
           <Avatar alt="User image" img={img} rounded />
@@ -25,6 +26,9 @@ const Header = () => {
                    <div className="bg-[#fbc0b8] p-1 rounded-[50%]">
                    <CgLogOut className="transform rotate-180 text-lg text-[#F15E4A]"></CgLogOut>
                    </div>
+                   <Link to="/register">
+                  <p className="font-semibold">Signup</p> 
+                   </Link>
               </div>
         </div>
       </div>
