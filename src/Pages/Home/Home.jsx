@@ -62,14 +62,26 @@ const Home = () => {
     setsearchedTestimonials(searchedTestimonials);
   };
 
+  const handleCity= (cityName) => {
+    const searchedTherapists = therapist.filter((data) =>
+      data.city.toLowerCase() === cityName.toLowerCase()
+    );
+    setsearchedTherapists(searchedTherapists);
+
+    const searchedTestimonials = testimonial.filter((data) =>
+      data.city.toLowerCase() === cityName.toLowerCase()
+    );
+    setsearchedTestimonials(searchedTestimonials);
+  };
+
   const therapistSettings = {
     dots: false,
-    infinite: searchedTherapists.length > 3,  // Disable infinite scroll if there are less than 4 items
+    infinite: searchedTherapists.length > 3,  
     speed: 500,
     slidesToShow: searchedTherapists.length < 2 ? 1 : 4,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: searchedTherapists.length > 1,  // Autoplay only if there are more than 1 items
+    autoplay: searchedTherapists.length > 1, 
     autoplaySpeed: 2000,
     cssEase: "linear",
     responsive: [
@@ -78,7 +90,7 @@ const Home = () => {
         settings: {
           slidesToShow: searchedTherapists.length < 2 ? 1 : 3,
           slidesToScroll: 1,
-          infinite: searchedTherapists.length > 3,  // Disable infinite scroll for small number of items
+          infinite: searchedTherapists.length > 3,  
           dots: false,
         },
       },
@@ -87,7 +99,7 @@ const Home = () => {
         settings: {
           slidesToShow: searchedTherapists.length < 2 ? 1 : 2,
           slidesToScroll: 1,
-          infinite: searchedTherapists.length > 2,  // Disable infinite scroll for small number of items
+          infinite: searchedTherapists.length > 2, 
         },
       },
       {
@@ -95,7 +107,7 @@ const Home = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          infinite: false,  // Disable infinite scroll for small screens
+          infinite: false,  
         },
       },
     ],
@@ -210,12 +222,17 @@ const Home = () => {
           </div>
         </div>
          <div className="flex-1">
-              <h1 className="font-medium text-xl">Popular Cities</h1>
+              <h1 className="font-medium text-xl font-[Poppins]">Popular Cities</h1>
               <div className="bg-white rounded-md ">
               <div className="grid grid-cols-2 lg:grid-cols-3 lg:p-5 gap-2 mt-5 ">
               {city.map((data,index) => (
                      <React.Fragment key={index}>
-                     <h1 className="underline text-[#156BCA] font-[Poppins]">{data.city}, {data.country}</h1>
+                     <h1 
+                       className="underline text-[#156BCA] font-[Poppins] cursor-pointer" 
+                       onClick={() => handleCity(data.city)}
+                     >
+                       {data.city}, {data.country}
+                     </h1>
                      {(index + 1) % 3 === 0 && (
                        <div className="col-span-3 h-[1px] bg-[#E7E7E7] my-2"></div>
                      )}

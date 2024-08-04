@@ -12,8 +12,8 @@
                     "id": 2,
                     "image": "https://i.ibb.co/VL9WrKS/image-119.png",
                     "therapistName": "Michael Smith",
-                    "city": "789 Maple Drive",
-                    "country": "NY",
+                    "city": "Miami",
+                    "country": "New York",
                     "chamber": "In-Studio",
                     "description": "Jane Doe is known for her compassionate approach and expertise in family therapy. With 8 years of experience, she has helped numerous families navigate through their challenges and improve their relationships. Jane is also skilled in conflict resolution and communication enhancement."
                   },
@@ -21,7 +21,7 @@
                     "id": 3,
                     "image": "https://i.ibb.co/26XcVVp/image-120.png",
                     "therapistName": "David Martinez",
-                    "city": "New York",
+                    "city": "NY",
                     "country": "USA",
                     "chamber": "Mobile & In-Studio",
                     "description": "John Smith offers mobile therapy sessions, bringing his services directly to his clients. He has a background in trauma-focused therapy and works extensively with clients dealing with PTSD and anxiety disorders. John emphasizes creating a safe and supportive environment for healing."
