@@ -4,16 +4,11 @@ import img2 from "../../../public/homeImg2.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './therapist.css'
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaCar } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
 
 const Home = () => {
        var settings = {
@@ -215,18 +210,19 @@ return (
          </div>
          <div className="flex-1">
               <h1 className="font-medium text-xl">Popular Cities</h1>
-              <div className="bg-white rounded-md">
+              <div className="bg-white rounded-md ">
               <div className="grid grid-cols-2 lg:grid-cols-3 lg:p-5 gap-2 mt-5 ">
-              {city.map((data) => (
-                     <>
+              {city.map((data,index) => (
+                     <React.Fragment key={index}>
+                     <h1 className="underline text-[#156BCA] font-[Poppins]">{data.city}, {data.country}</h1>
+                     {(index + 1) % 3 === 0 && (
+                       <div className="col-span-3 h-[1px] bg-[#E7E7E7] my-2"></div>
+                     )}
+                   </React.Fragment>
                      
-                          <h1 className="underline text-[#156BCA] font-[Poppins]">{data.city},{data.country}</h1>
-                          <div className="h-[1px]">
-
-                          </div>
-                     
-                     </>
               ))}
+           
+              
                </div>
               </div>
          </div>
