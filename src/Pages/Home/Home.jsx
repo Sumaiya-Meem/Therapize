@@ -6,7 +6,9 @@ import "slick-carousel/slick/slick-theme.css";
 import './therapist.css'
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import { FaLocationDot } from "react-icons/fa6";
+import { FaCar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Home = () => {
        var settings = {
               dots: true,
@@ -84,17 +86,31 @@ return (
 
    <div className="m-5">
        <h1 className="font-[Poppins]">Featured Therapist</h1>
-       <div className="w-[85%] m-auto">
+       <div className="w-[95%] mx-auto">
         <Slider {...settings} >
           {therapist.map((data) => (
             <>
-              <div className="bg-white mx-2 my-10  h-[350px] rounded-xl max-w-[350px] border-[1px] ">
-                <img src={data.image} alt="" className="w-full h-[200px] p-5" />
-                <div className="flex flex-col justify-center items-center gap-4 p-2">
-                  <h1 className="font-bold text-xl">{data.therapistName}</h1>
-                  <h1 className="font-bold text-[14px] text-blue-800">{data.city}{data.country}</h1>
+              <div className="bg-white mx-2 my-10  h-[345px] rounded-xl max-w-[350px] border-[1px] ">
+                <img src={data.image} alt="" className="w-full h-[200px] p-2" />
+                <div className="flex flex-col justify-center  gap-2 p-2">
+                <h1 className="font-bold">{data.therapistName}</h1>
+                <div className="flex gap-1 items-center  ">
+                     <FaLocationDot className=" text-sm text-[#5C635A]"></FaLocationDot>
+                  
+                  <h1 className=" text-sm text-[#5C635A]">{data.city}{data.country}</h1>
+                  </div>
+                  
+                  <div className="flex text-[#5C635A] items-center gap-1">
+                   <FaCar ></FaCar>
                   <p className="text-sm">{data.chamber}</p>
+                  </div>
                 </div>
+                <div className="bg-[#D4E9FF] hover:bg-[#156BCA] hover:text-white font-medium py-3 rounded-b-md text-center">
+                <Link>
+                <p><u>See Details</u></p>
+                </Link>
+                </div>
+                
               </div>
             </>
           ))}
