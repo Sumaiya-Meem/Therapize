@@ -21,8 +21,8 @@
                     "id": 3,
                     "image": "https://i.ibb.co/26XcVVp/image-120.png",
                     "therapistName": "David Martinez",
-                    "city": "Pine Street",
-                    "country": "San Fran",
+                    "city": "New York",
+                    "country": "USA",
                     "chamber": "Mobile & In-Studio",
                     "description": "John Smith offers mobile therapy sessions, bringing his services directly to his clients. He has a background in trauma-focused therapy and works extensively with clients dealing with PTSD and anxiety disorders. John emphasizes creating a safe and supportive environment for healing."
                   },
@@ -39,7 +39,7 @@
                     "id": 5,
                     "image": "https://i.ibb.co/26XcVVp/image-120.png",
                     "therapistName": "Kevin Brown",
-                    "city": "San Francisco",
+                    "city": "New York",
                     "country": "USA",
                     "chamber": "Mobile & In-Studio",
                     "description": "Kevin Brown integrates holistic practices with traditional therapy techniques. He offers both mobile and in-studio sessions, focusing on holistic healing and wellness through meditation, yoga, and psychotherapy. Kevin helps clients achieve a balanced and healthy lifestyle."
@@ -48,7 +48,7 @@
                     "id": 6,
                     "image": "https://i.ibb.co/Hpc5vvm/image-118.png",
                     "therapistName": "Linda Williams",
-                    "city": "Houston",
+                    "city": "New York",
                     "country": "USA",
                     "chamber": "In-Studio",
                     "description": "Linda Williams has 15 years of experience in psychotherapy and specializes in treating depression and mood disorders. Her approach combines cognitive behavioral therapy with positive psychology to help clients build resilience and improve their mental well-being."
