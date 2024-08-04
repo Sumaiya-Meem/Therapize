@@ -1,15 +1,24 @@
+.testimonial-slider .slick-prev:before,
+.testimonial-slider .slick-next:before {
+  display: none;
+}
+
+.testimonial-slider .slick-slide {
+  margin: 0;
+}
+
+
 
 .slick-slider {
- margin: 0 ;
+                  margin: 0 ;
 }
-               
-              
-.slick-prev:before, .slick-next:before{
-color:#156BCA;
-              
+                
+.slick-prev:before, 
+.slick-next:before {
+                  color: #156BCA ;
 }
-               
+                
 .slick-slide {
-margin: 0;
+                  margin: 0 ;
 }
                 

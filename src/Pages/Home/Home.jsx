@@ -9,9 +9,15 @@ import axios from "axios";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaCar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
+
 const Home = () => {
        var settings = {
-              dots: true,
+              dots: false,
               infinite: true,
               speed: 500,
               slidesToShow: 4,
@@ -28,7 +34,7 @@ const Home = () => {
                     slidesToScroll: 3,
                     initialSlide: 3,
                     infinite: true,
-                    dots: true,
+                    dots: false,
                   },
                 },
                 {
@@ -50,6 +56,8 @@ const Home = () => {
             };
           
             const [therapist, setTherapist] = useState([]);
+            const [testimonial, setTestimonial] = useState([]);
+            const [city, setCity] = useState([]);
           
             useEffect(() => {
               const fetchData = async () => {
@@ -62,6 +70,50 @@ const Home = () => {
           
               fetchData();
             }, []);
+
+            useEffect(() => {
+              const fetchData = async () => {
+                const response = await axios.get(
+                  "../../../public/testimonial.json"
+                );
+                setTestimonial(response.data);
+              };
+          
+              fetchData();
+            }, []);
+
+            useEffect(() => {
+              const fetchData = async () => {
+                const response = await axios.get(
+                  "../../../public/city.json"
+                );
+                setCity(response.data);
+              };
+          
+              fetchData();
+            }, []);
+
+         const testimonialSettings = {
+              dots: true,
+              speed: 500,
+              slidesToShow: 2,
+              vertical: true,
+              verticalSwiping: true,
+            };
+            const [expanded, setExpanded] = useState(); 
+
+            const handleReadMore = (id) => {
+              setExpanded(expanded === id ? null : id); 
+            };
+          
+            const shortText = (text, wordLimit) => {
+              const words = text.split(' ');
+              if (words.length <= wordLimit) {
+                return text;
+              }
+              return words.slice(0, wordLimit).join(' ') + '...';
+            };
+                    
 
 return (
 <div>
@@ -85,8 +137,8 @@ return (
    </div> 
 
    <div className="m-5">
-       <h1 className="font-[Poppins]">Featured Therapist</h1>
-       <div className="w-[95%] mx-auto">
+       <h1 className="font-[Poppins] text-xl font-medium my-3">Featured Therapist</h1>
+       <div className="w-[95%] mx-auto bg-white">
         <Slider {...settings} >
           {therapist.map((data) => (
             <>
@@ -116,7 +168,71 @@ return (
           ))}
         </Slider>
         </div>
-   </div>                                           
+   </div>    
+
+   <div className="m-5 flex flex-col lg:flex-row justify-between gap-4">
+         <div className="flex-1">
+              <h1 className="font-medium text-xl"> Featured Testimonial</h1>
+              <div className="mt-5  w-[500px] bg-white rounded-md testimonial-slider">
+              <Slider {...testimonialSettings} >
+              {testimonial.map((data) => (
+                <div key={data.id} className="flex p-4 my-3 border-[1px] ml-2  rounded">
+                     <div className="flex gap-2">
+                            <div><img src={data.image} alt="" className="" /></div>
+                            <div>
+                            <div className="flex gap-1 items-center  ">
+                     <FaLocationDot className=" text-sm text-[#5C635A]"></FaLocationDot>
+                  
+                  <h1 className=" text-sm text-[#5C635A]">{data.city}{data.country}</h1>
+                  </div>
+                  <div className="flex gap-1 items-center  ">
+                    <p className="text-[#232F3C] font-medium">{data.massageType}</p> by <span className="text-[#156BCA] italic font-medium">{data.therapistName}</span>
+                  </div>
+                  
+                  <p className="text-sm text-gray-700 mb-2">
+                    {expanded === data.id
+                      ? data.testimonialDescription
+                      : shortText(data.testimonialDescription, 12)}
+                    {data.testimonialDescription.split(' ').length > 12 && (
+                      <span
+                        className="text-blue-600 cursor-pointer font-[500]"
+                        onClick={() => handleReadMore(data.id)}
+                      >
+                        {expanded === data.id ? ' Show Less' : ' Read More'}
+                      </span>
+                    )}
+                  </p>
+                 
+                            </div>
+                     </div>
+                  
+
+                  
+                </div>
+              ))}
+            </Slider>
+              </div>
+         </div>
+         <div className="flex-1">
+              <h1 className="font-medium text-xl">Popular Cities</h1>
+              <div className="bg-white rounded-md">
+              <div className="grid grid-cols-2 lg:grid-cols-3 lg:p-5 gap-2 mt-5 ">
+              {city.map((data) => (
+                     <>
+                     
+                          <h1 className="underline text-[#156BCA] font-[Poppins]">{data.city},{data.country}</h1>
+                          <div className="h-[1px]">
+
+                          </div>
+                     
+                     </>
+              ))}
+               </div>
+              </div>
+         </div>
+  </div>   
+
+                                   
 </div>
 );
 };
