@@ -1,18 +1,56 @@
 import img from "../../../public/register.png";
 import logo from "../../../public/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ContextProvider } from "../../Context/AuthProvider";
+import { toast } from "react-toastify";
+import { updateProfile } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
+import userImg from "../../../public/user.png";
 
 const Register = () => {
   const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm();
   const [showPass, setShowPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
+  const { createUser } = useContext(ContextProvider);
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    console.log("Form data: ", data);
+  
+   
+    if (data.password !== data.confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
+  
+  
+    if (!data.terms) {
+      toast.error("You must accept the terms of service");
+      return;
+    }
+  
+    try {
+      const result = await createUser(data.email, data.password);
+      console.log("Firebase user creation result: ", result);
+  
+      if (result.user) {
+        await updateProfile(auth.currentUser, {
+          displayName: data.username,
+          photoURL: userImg,
+        });
+        console.log("User profile updated");
+        toast.success('User created successfully!');
+        navigate('/');
+      }
+    } catch (error) {
+      console.error("Error during user creation or profile update: ", error);
+      toast.error(error.message);
+    }
   };
+  
 
   const password = watch("password", "");
   const confirmPassword = watch("confirmPassword", "");
@@ -22,7 +60,7 @@ const Register = () => {
       <div className="flex-1 ml-5">
         <img src={logo} alt="" className="" />
         <h1 className="font-semibold mt-5 mb-2 text-xl">Sign In To Your Account</h1>
-        <p className="mb-3"> 
+        <p className="mb-3">
           Welcome Back! By clicking the sign-up button, you agree to Zenitoods
           Terms and Service and acknowledge the{" "}
           <Link className="text-blue-500 underline">
@@ -103,8 +141,13 @@ const Register = () => {
               </span>
             </div>
             <div className="mb-4">
-               <input type="checkbox" name="terms" id="" className="rounded"/>
-               <label htmlFor="terms" className="ml-2 text-sm text-blue-500">Accept Terms of Service</label>
+              <input
+                type="checkbox"
+                id="terms"
+                {...register('terms', { required: 'You must accept the terms of service' })}
+                className="rounded"
+              />
+              <label htmlFor="terms" className="ml-2 text-sm text-blue-500">Accept Terms of Service</label>
             </div>
 
             <div className="w-[400px] mx-auto">
@@ -115,13 +158,12 @@ const Register = () => {
                 Sign Up
               </button>
               <h1 className="mt-5 font-[Poppins]">
-              Already Have an Account?{" "}
-              <Link className="text-blue-700 font-medium underline" to='/login'>
-                Log in
-              </Link>
-            </h1>
+                Already Have an Account?{" "}
+                <Link className="text-blue-700 font-medium underline" to='/login'>
+                  Log in
+                </Link>
+              </h1>
             </div>
-           
           </form>
         </div>
       </div>
