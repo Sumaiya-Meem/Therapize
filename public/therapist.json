@@ -1,0 +1,93 @@
+[
+                  {
+                    "id": 1,
+                    "image": "https://i.ibb.co/Hpc5vvm/image-118.png",
+                    "therapistName": "Alexander Cort",
+                    "city": "New York",
+                    "country": "USA",
+                    "chamber": "Mobile & In-Studio",
+                    "description": "Alexander Cort is a licensed therapist with over 10 years of experience in providing personalized therapy sessions both in mobile and in-studio settings. He specializes in cognitive behavioral therapy and mindfulness techniques, helping clients manage stress, anxiety, and depression."
+                  },
+                  {
+                    "id": 2,
+                    "image": "https://i.ibb.co/VL9WrKS/image-119.png",
+                    "therapistName": "Michael Smith",
+                    "city": "789 Maple Drive",
+                    "country": "NY",
+                    "chamber": "In-Studio",
+                    "description": "Jane Doe is known for her compassionate approach and expertise in family therapy. With 8 years of experience, she has helped numerous families navigate through their challenges and improve their relationships. Jane is also skilled in conflict resolution and communication enhancement."
+                  },
+                  {
+                    "id": 3,
+                    "image": "https://i.ibb.co/26XcVVp/image-120.png",
+                    "therapistName": "David Martinez",
+                    "city": "Pine Street",
+                    "country": "San Fran",
+                    "chamber": "Mobile",
+                    "description": "John Smith offers mobile therapy sessions, bringing his services directly to his clients. He has a background in trauma-focused therapy and works extensively with clients dealing with PTSD and anxiety disorders. John emphasizes creating a safe and supportive environment for healing."
+                  },
+                  {
+                    "id": 4,
+                    "image": "https://i.ibb.co/vB3R1Dc/image-121.png",
+                    "therapistName": "Jennifer Lee",
+                    "city": "567 Cedar Lane",
+                    "country": "Miami",
+                    "chamber": "In-Studio",
+                    "description": "Maria Garcia is a bilingual therapist fluent in English and Spanish. She specializes in cultural and diversity counseling, helping clients from diverse backgrounds to cope with cultural assimilation and identity issues. Maria also offers support for individuals dealing with immigration stress."
+                  },
+                  {
+                    "id": 5,
+                    "image": "https://i.ibb.co/26XcVVp/image-120.png",
+                    "therapistName": "Kevin Brown",
+                    "city": "San Francisco",
+                    "country": "USA",
+                    "chamber": "Mobile & In-Studio",
+                    "description": "Kevin Brown integrates holistic practices with traditional therapy techniques. He offers both mobile and in-studio sessions, focusing on holistic healing and wellness through meditation, yoga, and psychotherapy. Kevin helps clients achieve a balanced and healthy lifestyle."
+                  },
+                  {
+                    "id": 6,
+                    "image": "https://i.ibb.co/Hpc5vvm/image-118.png",
+                    "therapistName": "Linda Williams",
+                    "city": "Houston",
+                    "country": "USA",
+                    "chamber": "In-Studio",
+                    "description": "Linda Williams has 15 years of experience in psychotherapy and specializes in treating depression and mood disorders. Her approach combines cognitive behavioral therapy with positive psychology to help clients build resilience and improve their mental well-being."
+                  },
+                  {
+                    "id": 7,
+                    "image": "https://i.ibb.co/26XcVVp/image-120.png",
+                    "therapistName": "David Johnson",
+                    "city": "Phoenix",
+                    "country": "USA",
+                    "chamber": "Mobile & In-Studio",
+                    "description": "David Johnson is a licensed marriage and family therapist with a focus on relationship counseling. He offers both mobile and in-studio sessions, helping couples and families improve communication, resolve conflicts, and strengthen their bonds. David also conducts workshops on relationship skills."
+                  },
+                  {
+                    "id": 8,
+                    "image": "https://i.ibb.co/VL9WrKS/image-119.png",
+                    "therapistName": "Susan Clark",
+                    "city": "Philadelphia",
+                    "country": "USA",
+                    "chamber": "In-Studio",
+                    "description": "Susan Clark is an experienced therapist specializing in child and adolescent therapy. She works with children dealing with behavioral issues, ADHD, and developmental challenges. Susan uses play therapy and other age-appropriate techniques to create a supportive environment for young clients."
+                  },
+                  {
+                    "id": 9,
+                    "image": "https://i.ibb.co/26XcVVp/image-120.png",
+                    "therapistName": "Michael Lewis",
+                    "city": "San Antonio",
+                    "country": "USA",
+                    "chamber": "Mobile",
+                    "description": "Michael Lewis provides mobile therapy services focusing on addiction and recovery. With over 12 years of experience, he helps clients overcome substance abuse and develop healthier coping mechanisms. Michael also offers support groups and relapse prevention programs."
+                  },
+                  {
+                    "id": 10,
+                    "image": "https://i.ibb.co/26XcVVp/image-120.png",
+                    "therapistName": "Emily Walker",
+                    "city": "San Diego",
+                    "country": "USA",
+                    "chamber": "In-Studio",
+                    "description": "Emily Walker specializes in grief counseling and supporting individuals through the process of loss and bereavement. She provides a compassionate and empathetic space for clients to express their emotions and work through their grief. Emily's approach includes mindfulness and therapeutic art."
+                  }
+                ]
+                
