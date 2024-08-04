@@ -6,6 +6,7 @@ import NewList from "../AddNewList/NewList";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import PrivateRoute from "./PrivateRoute";
+import TherapistDetails from "../Home/TherapistDetails/TherapistDetails";
 
   
   const router = createBrowserRouter([
@@ -19,8 +20,12 @@ import PrivateRoute from "./PrivateRoute";
         },
         {
         path: "/newList",
-        element: <PrivateRoute><NewList></NewList></PrivateRoute>,
-        },     
+        element: <NewList></NewList>,
+        },   
+        {
+         path: "/therapistDetails/:id",
+         element: <PrivateRoute><TherapistDetails></TherapistDetails></PrivateRoute>,
+         },   
         {
           path: "/login",
           element: <Login></Login>, 

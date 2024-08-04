@@ -106,7 +106,7 @@ return (
                   </div>
                 </div>
                 <div className="bg-[#D4E9FF] hover:bg-[#156BCA] hover:text-white font-medium py-3 rounded-b-md text-center">
-                <Link>
+                <Link to={`/therapistDetails/${data.id}`}>
                 <p><u>See Details</u></p>
                 </Link>
                 </div>
