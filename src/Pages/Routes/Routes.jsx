@@ -5,6 +5,7 @@ import Home from "../Home/Home";
 import NewList from "../AddNewList/NewList";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
   
   const router = createBrowserRouter([
@@ -18,7 +19,7 @@ import Register from "../Register/Register";
         },
         {
         path: "/newList",
-        element: <NewList></NewList>,
+        element: <PrivateRoute><NewList></NewList></PrivateRoute>,
         },     
         {
           path: "/login",

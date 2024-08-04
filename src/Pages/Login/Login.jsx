@@ -1,12 +1,17 @@
 import img from "../../../public/register.png";
 import logo from "../../../public/logo.png";
 import google from "../../../public/google.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { FaRegEyeSlash, FaRegEye ,FaFacebookF } from "react-icons/fa";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { toast } from "react-toastify";
+import { ContextProvider } from "../../Context/AuthProvider";
 
 const Login = () => {
+  const { signInUser, signInGoogle } = useContext(ContextProvider);
+  const location =useLocation();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -16,11 +21,31 @@ const Login = () => {
   } = useForm();
   const [showPass, setShowPass] = useState(false);
 
-  const onSubmit = async (data) => {
-    console.log(data);
-  };
+  const onSubmit = (data) => {
+    signInUser(data.email, data.password)
+        .then(result => {
+            console.log(result.user);
+            toast.success('Sign in successfully');
+            navigate(location?.state ? location.state:'/');
+        })
+        .catch(error => {
+            toast.error(error.message);
+        });
+};
+
 
   const password = watch("password", "");
+
+  const handleGoogle = () => {
+    signInGoogle()
+    .then(res=>{
+      console.log(res.user);
+      navigate(location?.state ? location.state:'/');
+    })
+    .catch(error=>{
+      console.log(error.message)
+    })
+};
 
   return (
     <div className="flex items-center justify-between mt-10 gap-5">
@@ -34,7 +59,7 @@ const Login = () => {
         </p>
 
         <div className="flex justify-between w-[400px] my-7 items-center">
-               <button className="bg-gradient-to-r from-[#E4E4E4] to-[#fafafa] flex items-center gap-1 w-[120px] h-[40px] px-2 rounded-md">
+               <button className="bg-gradient-to-r from-[#E4E4E4] to-[#fafafa] flex items-center gap-1 w-[120px] h-[40px] px-2 rounded-md" onClick={handleGoogle}>
                 <img src={google} alt="" />
                 <h1>Google</h1>
                </button>
