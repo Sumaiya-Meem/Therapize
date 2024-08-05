@@ -1,8 +1,37 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Therapize
 
-Currently, two official plugins are available:
+Welcome to **Therapize**! 🌟
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Live Link](https://therapize-f86b7.web.app/)
+
+## Description
+
+Therapize is a web application designed to help users find massage therapists in their area. Users can search for therapists by city, view testimonials, and explore popular cities. The application utilizes Firebase for authentication and data management, React for the frontend, and Tailwind CSS for styling.
+
+## Features
+
+- **Search**: Find therapists by city or zip code.
+- **Featured Therapists**: View a carousel of featured therapists.
+- **Testimonials**: Read testimonials and reviews.
+- **Popular Cities**: Browse a list of popular cities with clickable options.
+
+## Technologies Used
+
+- **React**: For building the user interface.
+- **React Router DOM**: For navigation and routing.
+- **Firebase**: For authentication and data management.
+- **Tailwind CSS**: For styling and responsive design.
+
+## Getting Started
+
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/therapize.git
+
+2. cd therapize
+3. npm install
