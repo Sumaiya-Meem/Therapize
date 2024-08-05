@@ -31,7 +31,7 @@ Therapize is a web application designed to help users find massage therapists in
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/therapize.git
+   git clone https://github.com/Sumaiya-Meem/Therapize.git
 
 2. cd therapize
 3. npm install
