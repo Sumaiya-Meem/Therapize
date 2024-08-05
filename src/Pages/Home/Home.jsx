@@ -97,7 +97,7 @@ const Home = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: searchedTherapists.length < 2 ? 1 : 2,
+          slidesToShow: searchedTherapists.length < 2 ? 1 : 1,
           slidesToScroll: 1,
           infinite: searchedTherapists.length > 2, 
         },
@@ -123,33 +123,38 @@ const Home = () => {
 
   return (
     <div>
-      <div className="flex bg-white m-5 rounded p-2">
-        <div className="flex-1">
-          <h1 className="font-semibold my-3">I'm Looking for Massage Therapist Near...</h1>
-          <p className="text-sm my-3">In using this site, I agree to be bound by the <span className="text-blue-500 font-medium">Terms of Service</span> 
-          <br></br>and  <span className="text-blue-500 font-medium">Privacy Policy</span> 
-          </p>
-          <div className="relative mt-7 w-[400px]">
-            <input
-              type="search"
-              name=""
-              id=""
-              className="bg-[#EEF2F5] w-3/4 border-none rounded"
-              placeholder="ZIP code or city name"
-              onChange={handleSearch}
-            />
-            <button className="bg-[#156BCA] w-[60px] h-[40px] rounded-lg absolute right-[100px] text-white">Go</button>
-          </div>
-        </div>
-        <div className="flex relative">
-          <img src={img2} alt="" className="mr-14" />
-          <img src={img1} alt="" className="w-[250px] right-5 absolute" />
-        </div>
-      </div> 
+      <div className="flex flex-col lg:flex-row bg-white m-5 rounded p-2 w-[390px] lg:w-auto h-auto">
+  <div className="flex-1 order-1">
+    <h1 className="font-semibold my-3">I'm Looking for Massage Therapist Near...</h1>
+    <p className="text-sm my-3">
+      In using this site, I agree to be bound by the <span className="text-blue-500 font-medium underline">Terms of Service</span> 
+      <br />
+      and <span className="text-blue-500 font-medium underline">Privacy Policy</span>
+    </p>
+    <div className="relative mt-7 w-full lg:w-[400px]">
+      <input
+        type="search"
+        name=""
+        id=""
+        className="bg-[#EEF2F5] w-full lg:w-3/4 border-none rounded pl-3 pr-[80px] h-[40px]"
+        placeholder="ZIP code or city name"
+        onChange={handleSearch}
+      />
+      <button className="bg-[#156BCA] w-[80px] lg:w-[60px] h-[40px] rounded-lg absolute right-0 lg:right-[100px] text-white">Go</button>
+    </div>
+  </div>
+  <div className="flex-1 order-2 lg:order-1 flex flex-col lg:flex-row mt-5 lg:mt-0 relative justify-center lg:justify-end">
+    <img src={img2} alt="" className="hidden lg:block mr-0 lg:mr-14 w-[80px] lg:w-auto mb-5 lg:mb-0" />
+    <img src={img1} alt="" className="w-[150px] lg:w-[250px]" />
+  </div>
+</div>
+
+
+
 
       <div className="m-5">
         <h1 className="font-[Poppins] text-xl font-medium my-3">Featured Therapist</h1>
-        <div className="w-[95%] mx-auto bg-white">
+        <div className="md:w-[95%] w-[80%] mx-auto bg-white">
           <Slider {...therapistSettings}>
             {searchedTherapists.length > 0 ? (
               searchedTherapists.map((data) => (
@@ -183,7 +188,7 @@ const Home = () => {
       <div className="m-5 flex flex-col lg:flex-row justify-between gap-4">
         <div className="flex-1">
           <h1 className="font-medium text-xl"> Featured Testimonial</h1>
-          <div className="mt-5 w-[500px] bg-white rounded-md testimonial-slider">
+          <div className="mt-5 lg:w-[500px] w-auto bg-white rounded-md testimonial-slider">
             {searchedTestimonials.length > 0 ? (
               <Slider {...testimonialSettings}>
                 {searchedTestimonials.map((data) => (
@@ -221,26 +226,28 @@ const Home = () => {
             )}
           </div>
         </div>
-         <div className="flex-1">
-              <h1 className="font-medium text-xl font-[Poppins]">Popular Cities</h1>
-              <div className="bg-white rounded-md ">
-              <div className="grid grid-cols-2 lg:grid-cols-3 lg:p-5 gap-2 mt-5 ">
-              {city.map((data,index) => (
-                     <React.Fragment key={index}>
-                     <h1 
-                       className="underline text-[#156BCA] font-[Poppins] cursor-pointer" 
-                       onClick={() => handleCity(data.city)}
-                     >
-                       {data.city}, {data.country}
-                     </h1>
-                     {(index + 1) % 3 === 0 && (
-                       <div className="col-span-3 h-[1px] bg-[#E7E7E7] my-2"></div>
-                     )}
-                   </React.Fragment>
-              ))}
-               </div>
-              </div>
-         </div>
+        <div className="flex-1">
+  <h1 className="font-medium text-xl font-[Poppins]">Popular Cities</h1>
+  <div className="bg-white rounded-md">
+  <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 p-5 mt-5">
+    {city.map((data, index) => (
+      <React.Fragment key={index}>
+        <h1 
+          className="underline text-[#156BCA] font-[Poppins] cursor-pointer" 
+          onClick={() => handleCity(data.city)}
+        >
+          {data.city}, {data.country}
+        </h1>
+        {(index + 1) % 3 === 0 && (
+          <div className="col-span-full h-[1px] bg-[#E7E7E7] my-2"></div>
+        )}
+      </React.Fragment>
+    ))}
+  </div>
+</div>
+
+</div>
+
       </div>   
     </div>
   );
