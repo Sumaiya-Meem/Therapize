@@ -1,11 +1,10 @@
 
-
-const NewList = () => {
+const Favorite = () => {
                   return (
                                     <div>
-                                        <h1>New Lsit Page</h1>             
+                                       <h1>Favourite Page</h1>               
                                     </div>
                   );
 };
 
-export default NewList;
+export default Favorite;

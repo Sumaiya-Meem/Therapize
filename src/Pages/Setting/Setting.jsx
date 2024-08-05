@@ -1,11 +1,11 @@
 
 
-const NewList = () => {
+const Setting = () => {
                   return (
                                     <div>
-                                        <h1>New Lsit Page</h1>             
+                                             <h1>Setting page</h1>         
                                     </div>
                   );
 };
 
-export default NewList;
+export default Setting;

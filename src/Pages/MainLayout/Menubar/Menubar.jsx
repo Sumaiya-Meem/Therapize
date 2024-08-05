@@ -1,11 +1,10 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { MdOutlineDashboard } from "react-icons/md";
 import { GoPeople } from "react-icons/go";
 import logo from "../../../../public/logo.png";
 import { CiSearch, CiHeart, CiSquareInfo, CiSettings } from "react-icons/ci";
 import { IoDocumentTextOutline } from "react-icons/io5";
-import { Avatar, Dropdown } from "flowbite-react"; // Import Avatar if you use it
-import { CgLogOut } from "react-icons/cg";
+import { Avatar, Dropdown } from "flowbite-react"; 
 import { useContext } from "react";
 import { ContextProvider } from "../../../Context/AuthProvider";
 import { toast } from "react-toastify";
@@ -36,7 +35,7 @@ const Menubar = () => {
             </>
             :
             <>
-            
+           
             </>
           }
         {/* {user ? (

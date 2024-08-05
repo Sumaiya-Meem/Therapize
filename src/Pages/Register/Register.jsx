@@ -10,6 +10,8 @@ import { updateProfile } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import userImg from "../../../public/user.png";
 
+import bg from "../../../public/smLogo.png"
+
 const Register = () => {
   const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm();
   const [showPass, setShowPass] = useState(false);
@@ -55,8 +57,17 @@ const Register = () => {
   const password = watch("password", "");
   const confirmPassword = watch("confirmPassword", "");
 
+  const backgroundImageStyle = {
+    backgroundImage: `url(${bg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    height: "500px",
+};
+
   return (
-    <div className="flex items-center justify-between mt-10 gap-5">
+    <div>
+      <div className="hidden lg:block">
+       <div className="flex items-center justify-between mt-10 gap-5">
       <div className="flex-1 ml-5">
         <img src={logo} alt="" className="" />
         <h1 className="font-semibold mt-5 mb-2 text-xl">Sign In To Your Account</h1>
@@ -177,6 +188,33 @@ const Register = () => {
         </div>
       </div>
     </div>
+      </div>
+
+      <div className="lg:hidden" style={backgroundImageStyle}>
+       <div className="pt-10 text-center">
+       <div className="flex justify-center"><img src={logo} alt="" className="" /></div>
+       <h1 className="font-semibold mt-5 mb-2 text-xl">Sign In To Your Account</h1>
+       <p className="mb-3 text-white w-[90%]">
+          Welcome Back! By clicking the sign-up button, you agree to Zenitoods
+          Terms and Service and acknowledge the{" "}
+          <Link className="text-blue-800 underline">
+            Privacy and Policy
+          </Link>
+        </p>
+        <div className=" flex justify-center">
+        <div className="bg-[#1F2833] w-[200px] h-[80px] flex flex-col items-center justify-center rounded">
+          <Link to="/register2"><h1 className="text-[#156BCA]">Create Account</h1></Link>
+          <p className="text-[#fff]">Fill in Your Information</p>
+        </div>
+      </div>
+     </div>
+      </div>
+
+      
+      
+    </div>
+
+    
   );
 };
 

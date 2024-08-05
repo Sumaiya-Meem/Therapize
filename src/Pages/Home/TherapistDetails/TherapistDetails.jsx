@@ -44,7 +44,7 @@ const TherapistDetails = () => {
 
                   <div className="flex my-3 bg-[#156BCA] w-[160px] p-2 rounded-md text-white items-center gap-1">
                   <button><FaRegHeart></FaRegHeart></button>
-                  <p>Add to favourite</p>
+                  <p>Add to Favorite</p>
                   </div>
       <p></p>
          </div>
